@@ -1,0 +1,9 @@
+{
+    "app_id": "locdoc-xyrzs",
+    "config_version": 20210101,
+    "name": "Locdoc",
+    "location": "US-VA",
+    "provider_region": "aws-us-east-1",
+    "deployment_model": "LOCAL",
+    "environment": "development"
+}
