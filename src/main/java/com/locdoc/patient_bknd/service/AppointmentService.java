@@ -58,8 +58,10 @@ public class AppointmentService {
         appointmentRepository.save(appointmentModel);
     }
 
-    public void deleteAppointmentById(String id)
+    public void deleteAppointmentByEmail(String email)
     {
-        appointmentRepository.deleteById(id);
+        Query query = new Query();
+        query.addCriteria(Criteria.where("patient_email").is(email));
+        mongoTemplate.remove(query,AppointmentModel.class);
     }
 }

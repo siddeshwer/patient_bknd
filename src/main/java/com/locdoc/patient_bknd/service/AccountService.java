@@ -1,6 +1,7 @@
 package com.locdoc.patient_bknd.service;
 
 import com.locdoc.patient_bknd.models.AccountModel;
+import com.locdoc.patient_bknd.models.DoctorModel;
 import com.locdoc.patient_bknd.repository.AccountRepository;
 import com.mongodb.client.result.UpdateResult;
 import org.bson.BsonValue;
@@ -12,6 +13,8 @@ import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.data.mongodb.core.query.UpdateDefinition;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AccountService {
     @Autowired
@@ -22,6 +25,14 @@ public class AccountService {
 
     public AccountModel getAccountById(String id){
         return accountRepository.findById(id).get();
+    }
+
+    public AccountModel getAccountByEmail(String email)
+    {
+        Query query = new Query();
+        query.addCriteria(Criteria.where("email").is(email));
+        AccountModel accountModel = mongoTemplate.findOne(query, AccountModel.class);
+        return accountModel ;
     }
 
     public BsonValue addAccount(AccountModel accountModel){

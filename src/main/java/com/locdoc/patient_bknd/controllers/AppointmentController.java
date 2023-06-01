@@ -47,4 +47,11 @@ public class AppointmentController {
         appointmentService.updateAppointment(appointmentModel);
         return appointmentModel;
     }
+
+    @DeleteMapping("/appointment/cancel/{email}")
+    public String deleteAppointmentByEmail(@PathVariable("email") String email)
+    {
+       appointmentService.deleteAppointmentByEmail(email);
+       return "Appointment Cancelled";
+    }
 }
