@@ -31,10 +31,10 @@ public class AppointmentService {
         return appointmentRepository.findById(id);
     }
 
-    public List<AppointmentModel> getAppointmentByPhone(String phone)
+    public List<AppointmentModel> getAppointmentByPhone(String email)
     {
         Query query = new Query();
-        query.addCriteria(Criteria.where("patient_email").is(phone));
+        query.addCriteria(Criteria.where("patient_email").is(email));
         List<AppointmentModel> patient_appointments = mongoTemplate.find(query, AppointmentModel.class);
         return patient_appointments;
     }

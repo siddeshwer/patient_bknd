@@ -1,6 +1,7 @@
 package com.locdoc.patient_bknd.controllers;
 
 import com.locdoc.patient_bknd.models.AppointmentModel;
+import com.locdoc.patient_bknd.repository.AppointmentRepository;
 import com.locdoc.patient_bknd.service.AppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -12,10 +13,18 @@ import java.util.List;
 public class AppointmentController {
     @Autowired
     AppointmentService appointmentService;
+    @Autowired
+    AppointmentRepository appointmentRepository;
 
     @GetMapping("/appointment/{id}")
     public List<AppointmentModel> getAppointmentById(@PathVariable("id") String id){
         return appointmentService.getAppointmentByPhone(id);
+    }
+
+    @GetMapping("/appointment/all")
+    public List<AppointmentModel> getAllApps()
+    {
+        return appointmentRepository.findAll();
     }
 
 

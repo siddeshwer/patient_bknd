@@ -17,6 +17,7 @@ public class AccountController {
         return accountService.getAccountById(id);
     }
 
+
     @DeleteMapping("/account/delete/{id}")
     public String deleteAccountById(@PathVariable("id") String id){ accountService.deleteAccountById(id); return "Account Deleted with Id  " + id;}
 

@@ -17,7 +17,7 @@ public class DoctorController
     private DoctorService doctorService;
 
     @GetMapping("/doctor/{id}")
-    public DoctorModel getDoctorById(@PathVariable("id") String id)
+    public DoctorModel  getDoctorById(@PathVariable("id") String id)
     {
         return doctorService.getDoctorById(id);
     }
