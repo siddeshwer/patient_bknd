@@ -23,10 +23,6 @@ public class AccountService {
     @Autowired
     public MongoTemplate mongoTemplate;
 
-    public AccountModel getAccountById(String id){
-        return accountRepository.findById(id).get();
-    }
-
     public AccountModel getAccountByEmail(String email)
     {
         Query query = new Query();
