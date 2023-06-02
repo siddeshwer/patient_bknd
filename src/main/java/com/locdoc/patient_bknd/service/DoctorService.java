@@ -67,6 +67,4 @@ public class DoctorService {
         doctorRepository.save(doctorModel);
     }
 
-    public void deleteDoctorById(String id){
-        doctorRepository.deleteById(id);}
 }
