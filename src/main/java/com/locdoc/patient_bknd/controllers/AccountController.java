@@ -12,7 +12,7 @@ public class AccountController {
     AccountService accountService;
 
     //To get the account details by the given Id
-    @GetMapping("/account/{email}")
+    @GetMapping("/account/user/{email}")
     public AccountModel getAccountById(@PathVariable("email") String email){
         return accountService.getAccountByEmail(email);
     }
